@@ -4,15 +4,17 @@ import org.springframework.web.bind.annotation.*;
 
 //to jest api restowe nie strona www
 @RestController
+//kontroler
 @RequestMapping("/greetings")
 public class HelloWorldRestController {
     //wstrzykiwanie repositor
     private GreetingsRepository repository;
-
+//tworzy,u konstruktor
     public HelloWorldRestController(GreetingsRepository repository) {
         this.repository = repository;
     }
 //szukanie:)?
+    //nasluchuje
     @GetMapping
     public Iterable<Greeting>getAllGreeting(){
    // public Greeting getAllGreeting(){
@@ -29,6 +31,7 @@ public class HelloWorldRestController {
     }
     //usuwanie
     //id zostanie zstapione liczba
+    //osluguje sciezki regex
     @DeleteMapping("/{id}")
     public void deleteGreeting(@PathVariable("id") long id){
         repository.deleteById(id);
