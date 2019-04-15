@@ -1,8 +1,18 @@
 package pl.sda;
 
-import lombok.Value;
+import lombok.Data;
 
-@Value
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+//podobno nic nie musimy wiedziec:)))
+//
+@Data
+@Entity
 public class Greeting {
-    private final String msg;
+    private String msg;
+    @Id
+    @GeneratedValue
+    private long id;
+
 }
